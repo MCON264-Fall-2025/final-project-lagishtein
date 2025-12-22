@@ -26,5 +26,13 @@ jobs:
         run: |
           mkdir -p src/test/java/edu/course/eventplanner
           cp .github/tests/*.java src/test/java/edu/course/eventplanner/
-      - name: Run autograding tests
+      - name: Run autograding
         uses: education/autograding@v1
+        id: autograder
+        continue-on-error: true
+      - name: Grade assignment
+        uses: education/autograding-grading-reporter@v1
+        env:
+          VENUE_SELECTION_TESTS_RESULTS: "${{steps.autograder.outputs.points}}"
+        with:
+          runners: autograder
