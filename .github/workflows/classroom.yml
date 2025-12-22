@@ -22,5 +22,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Copy instructor tests
+        run: |
+          mkdir -p src/test/java/edu/course/eventplanner
+          cp .github/tests/*.java src/test/java/edu/course/eventplanner/
       - name: Run autograding tests
         uses: education/autograding@v1
