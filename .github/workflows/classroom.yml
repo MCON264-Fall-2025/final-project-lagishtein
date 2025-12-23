@@ -26,13 +26,18 @@ jobs:
         run: |
           mkdir -p src/test/java/edu/course/eventplanner
           cp .github/tests/*.java src/test/java/edu/course/eventplanner/
-      - name: Run autograding
+      - name: Autograding
         uses: education/autograding@v1
         id: autograder
         continue-on-error: true
-      - name: Grade assignment
+      - name: Autograding Reporter
         uses: education/autograding-grading-reporter@v1
         env:
-          VENUE_SELECTION_TESTS_RESULTS: "${{steps.autograder.outputs.points}}"
+          VENUE_SELECTION_TESTS_RESULTS: "${{steps.autograder.outputs.venue-selection-tests}}"
+          GUEST_MANAGEMENT_TESTS_RESULTS: "${{steps.autograder.outputs.guest-management-tests}}"
+          SEATING_ALGORITHM_TESTS_RESULTS: "${{steps.autograder.outputs.seating-algorithm-tests}}"
+          TASK_WORKFLOW_AND_UNDO_TESTS_RESULTS: "${{steps.autograder.outputs.task-workflow-and-undo-tests}}"
+          STUDENT_UNIT_TESTS_COVERAGE_RESULTS: "${{steps.autograder.outputs.student-unit-tests-coverage}}"
+          README_DOCUMENTATION_RESULTS: "${{steps.autograder.outputs.readme-documentation}}"
         with:
-          runners: autograder
+          runners: venue-selection-tests,guest-management-tests,seating-algorithm-tests,task-workflow-and-undo-tests,student-unit-tests-coverage,readme-documentation
