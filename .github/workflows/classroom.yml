@@ -26,6 +26,9 @@ jobs:
         run: |
           mkdir -p src/test/java/edu/course/eventplanner
           cp .github/tests/*.java src/test/java/edu/course/eventplanner/
+          
+      - name: Place autograding.json at repo root
+        run: cp .github/classroom/autograding.json ./autograding.json
 
       - name: Run Autograding
         uses: education/autograding@v1
