@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "name": "Venue Selection Tests",
+      "setup": "",
+      "run": "mvn test -Dtest=VenueSelectionTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Guest Management Tests",
+      "setup": "",
+      "run": "mvn test -Dtest=GuestManagementTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Seating Algorithm Tests",
+      "setup": "",
+      "run": "mvn test -Dtest=SeatingAlgorithmTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Task Workflow and Undo Tests",
+      "setup": "",
+      "run": "mvn test -Dtest=TaskWorkflowTest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "Student Unit Tests Coverage",
+      "setup": "",
+      "run": "mvn test jacoco:report && python3 .github/scripts/check_coverage.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 15,
+      "points": 15
+    },
+    {
+      "name": "README Documentation",
+      "setup": "",
+      "run": "python3 .github/scripts/check_readme.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 5
+    }
+  ]
+}
